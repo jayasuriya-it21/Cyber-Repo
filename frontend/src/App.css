@@ -1,0 +1,20 @@
+/* General App Styles */
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: #f0f3f5;
+}
+
+/* Content Area */
+.app > div {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+/* Making sure the sidebar and content are responsive */
+@media screen and (max-width: 768px) {
+  .app > div {
+    flex-direction: column;
+  }
+}
