@@ -1,3 +1,5 @@
+// frontend\src\components\Display.js
+
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchTopicDetailsByName } from "../api"; // Update the API call to fetch by name

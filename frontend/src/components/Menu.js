@@ -1,3 +1,5 @@
+// frontend\src\components\Menu.js
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./css/Menu.css";

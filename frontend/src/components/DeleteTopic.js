@@ -1,3 +1,5 @@
+// frontend\src\components\DeleteTopic.js
+
 import React, { useState, useEffect } from 'react';
 import { fetchTopics, deleteTopic } from '../api';
 

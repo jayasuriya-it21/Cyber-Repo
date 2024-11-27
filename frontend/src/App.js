@@ -1,3 +1,5 @@
+// frontend\src\App.js
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Menu from './components/Menu';
