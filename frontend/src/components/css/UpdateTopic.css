@@ -1,0 +1,9 @@
+.selectTopic {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 1rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+    background-color: #f9f9f9;
+  }

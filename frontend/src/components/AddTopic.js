@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { addTopic } from '../api';
+import './css/AddTopic.css'
 
 const AddTopic = () => {
   const [formData, setFormData] = useState({
@@ -26,8 +27,14 @@ const AddTopic = () => {
 
     // Submit data if validation passes
     addTopic(formData)
-      .then((response) => console.log(response))
-      .catch((error) => console.error('Error adding topic:', error));
+      .then((response) => {
+        alert('Topic added successfully!');
+        window.location.reload(); // Reload the page
+      })
+      .catch((error) => {
+        console.error('Error adding topic:', error);
+        alert('Failed to add topic. Please try again.');
+      });
   };
 
   return (

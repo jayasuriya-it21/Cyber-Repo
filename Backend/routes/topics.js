@@ -23,19 +23,22 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Get Single Topic by Name
-router.get('/name/:topicName', async (req, res) => {
+// Route to get a topic by name
+router.get('/name/:name', async (req, res) => {
   try {
-    const topicName = req.params.topicName;
-    const topic = await Topic.findOne({ name: topicName });
-
-    if (!topic) {
-      return res.status(404).json({ message: 'Topic not found' });
+    // Normalize the topic name by replacing hyphens with spaces and converting to lowercase
+    const normalizedTopicName = req.params.name.replace(/-/g, ' ').toLowerCase();
+    
+    // Query the database using a case-insensitive regular expression
+    const topic = await Topic.findOne({ name: new RegExp(`^${normalizedTopicName}$`, 'i') });
+    
+    if (topic) {
+      res.json(topic);
+    } else {
+      res.status(404).json({ message: 'Topic not found' });
     }
-
-    res.json(topic);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching topic details' });
   }
 });
 

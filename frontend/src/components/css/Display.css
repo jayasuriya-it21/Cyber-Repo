@@ -1,12 +1,11 @@
-/* Display.css */
 /* Global settings */
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f0f3f5; /* Subtle background color */
-  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9; /* Soft background */
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Main content area */
@@ -17,22 +16,23 @@ body {
   background-color: #ffffff;
   width: 78%;
   overflow-y: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
-  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  /* transition: all 0.3s ease-in-out; */
+  
 }
 
 .topic-content h1 {
-  font-size: 2.2em;
+  font-size: 2.4rem;
   font-weight: bold;
-  color: #34495e;
-  margin-bottom: 15px;
+  color: #2c3e50;
+  margin-bottom: 20px;
 }
 
 .topic-content p {
-  font-size: 1.15em;
-  line-height: 1.7;
-  color: #2c3e50;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #34495e;
   margin-bottom: 15px;
 }
 
@@ -41,14 +41,15 @@ body {
   aspect-ratio: 16/9;
   margin-bottom: 20px;
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .topic-content h3 {
-  font-size: 1.4em;
-  margin-top: 20px;
+  font-size: 1.3rem;
+  margin-top: 25px;
   color: #2980b9;
+  font-weight: bold;
 }
 
 .topic-content ul {
@@ -78,7 +79,7 @@ body {
   text-align: center;
   color: #7f8c8d;
   padding: 20px;
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .error {
@@ -88,8 +89,8 @@ body {
 
 .loading {
   text-align: center;
-  color: #2980b9;
-  font-size: 1.5em;
+  color: #2ecc71;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 

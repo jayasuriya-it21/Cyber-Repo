@@ -1,24 +1,34 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./css/Menu.css";
 
-function Menu({ onSelectTopic, topics }) {
+function Menu({ onSelectTopic, topics, category, selectedTopic }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [activeTopic, setActiveTopic] = useState(selectedTopic);
+  const location = useLocation();
+
+  useEffect(() => {
+    const pathParts = location.pathname.split('/');
+    if (pathParts.length >= 4) {
+      setActiveTopic(pathParts[3].replace(/-/g, ' '));
+    } else {
+      setActiveTopic(""); // Clear active topic when category changes
+    }
+  }, [location, selectedTopic]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleTopicSelect = (topicName) => {
-    setSelectedTopic(topicName);
+    setActiveTopic(topicName);
     onSelectTopic(topicName);
     setIsMenuOpen(false); // Close menu on topic selection in mobile view
   };
 
   // Helper function to format topic name for the URL
   const formatTopicNameForURL = (name) => {
-    return name.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with hyphens and convert to lowercase
+    return name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase(); // Replace spaces with hyphens, remove special characters, and convert to lowercase
   };
 
   return (
@@ -35,13 +45,13 @@ function Menu({ onSelectTopic, topics }) {
         aria-hidden={!isMenuOpen}
       >
         <ul className="menu" role="menu">
-          {topics.map((topic) => (
+          {topics.filter(topic => topic.category.toLowerCase() === category.toLowerCase()).map((topic) => (
             <li
               key={topic._id}
-              className={`topic ${selectedTopic === topic.name ? "active" : ""}`}
+              className={`topic ${activeTopic === topic.name ? "active" : ""}`}
               onClick={() => handleTopicSelect(topic.name)}
               role="menuitem"
-              aria-selected={selectedTopic === topic.name}
+              aria-selected={activeTopic === topic.name}
             >
               {/* Generate link using formatted topic name */}
               <Link to={`/courses/${topic.category.toLowerCase()}/${formatTopicNameForURL(topic.name)}`}>

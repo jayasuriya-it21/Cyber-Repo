@@ -5,8 +5,8 @@ import ReactMarkdown from "react-markdown";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./css/Display.css";
 
-function Display({ selectedTopic }) {
-  const { topicName } = useParams(); // Get topicName from the URL
+function Display() {
+  const { category, topicName } = useParams(); // Get category and topicName from the URL
   const [topic, setTopic] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,9 @@ function Display({ selectedTopic }) {
       if (topicName) {
         setLoading(true);
         try {
-          const data = await fetchTopicDetailsByName(topicName); // Fetch topic by name
+          // Normalize the topic name for API request
+          const normalizedTopicName = topicName.replace(/-/g, " ").toLowerCase();
+          const data = await fetchTopicDetailsByName(normalizedTopicName); // Fetch topic by normalized name
           setTopic(data);
           setError(null);
         } catch {
@@ -27,7 +29,12 @@ function Display({ selectedTopic }) {
         }
       }
     };
+
     loadTopicDetails();
+
+    // Scroll to top after loading the new topic
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  //   console.log("Scroll reset triggered for topic:", topicName); // Debugging log
   }, [topicName]); // Re-run when topicName changes
 
   const handleCopy = (index) => {

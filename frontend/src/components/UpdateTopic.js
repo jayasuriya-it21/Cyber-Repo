@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchTopics, updateTopic } from '../api';
+import './css/UpdateTopic.css'
 
 const UpdateTopic = () => {
   const [topics, setTopics] = useState([]);
@@ -81,19 +82,22 @@ const UpdateTopic = () => {
   };
 
   return (
-    <div>
-      <h1>Update Topic</h1>
+    <div className='container'>
 
-      <label>Category:</label>
-      <select onChange={handleCategoryChange} value={selectedCategory}>
-        <option value="">Select Category</option>
-        {categories.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
+      <div className="selectTopic">
 
+        <h1>Select Topic to Update</h1>
+
+        <label>Category:</label>
+        <select onChange={handleCategoryChange} value={selectedCategory}>
+          <option value="">Select Category</option>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </select>
+      
       {selectedCategory && (
         <>
           <label>Topic:</label>
@@ -107,9 +111,12 @@ const UpdateTopic = () => {
           </select>
         </>
       )}
+    </div>
+
 
       {selectedTopic && (
         <form onSubmit={handleSubmit}>
+          <h1>Update Topic</h1>
           <label>Category:</label>
           <select
             name="category"

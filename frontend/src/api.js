@@ -42,3 +42,14 @@ export const updateTopic = async (id, topic) => {
     throw error;
   }
 };
+
+export const deleteTopic = async (id) => {
+  try {
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting topic:', error);
+    throw error;
+  }
+};
+

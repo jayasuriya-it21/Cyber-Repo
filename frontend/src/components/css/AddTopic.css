@@ -1,0 +1,69 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+
+    background-color: #f9f9f9;
+    overflow-y: auto;
+  }
+  h1 {
+    color: green;
+  }
+  label {
+    margin: 0.5rem 0 0.2rem;
+  }
+  input,
+  select,
+  textarea,
+  button {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    form {
+      padding: 0.5rem;
+    }
+    label {
+      margin: 0.5rem 0;
+    }
+    input,
+    select,
+    textarea,
+    button {
+      font-size: 0.9rem;
+      padding: 0.4rem;
+    }
+    button {
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: 480px) {
+    form {
+      padding: 0.3rem;
+    }
+    input,
+    select,
+    textarea,
+    button {
+      font-size: 0.8rem;
+      padding: 0.3rem;
+    }
+    button {
+      font-size: 0.9rem;
+    }
+  }

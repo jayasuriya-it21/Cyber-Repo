@@ -1,17 +1,15 @@
-// Navbar.js
-
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./css/Navbar.css";
 
-function Navbar() {
+function Navbar({ handleSelectCategory }) {
   return (
     <div className="nav-container">
       <div className="nav-item">
         <NavLink
           to="/courses/basic"
           className={({ isActive }) => (isActive ? "active-link" : "")}
-          aria-current={({ isActive }) => (isActive ? "page" : undefined)}
+          onClick={() => handleSelectCategory("basic")}
         >
           Basic
         </NavLink>
@@ -21,6 +19,7 @@ function Navbar() {
         <NavLink
           to="/courses/intermediate"
           className={({ isActive }) => (isActive ? "active-link" : "")}
+          onClick={() => handleSelectCategory("intermediate")}
         >
           Intermediate
         </NavLink>
@@ -28,10 +27,11 @@ function Navbar() {
 
       <div className="nav-item">
         <NavLink
-          to="/courses/advance"
+          to="/courses/advanced"
           className={({ isActive }) => (isActive ? "active-link" : "")}
+          onClick={() => handleSelectCategory("advanced")}
         >
-          Advance
+          Advanced
         </NavLink>
       </div>
     </div>

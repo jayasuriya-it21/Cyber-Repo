@@ -1,20 +1,30 @@
-/* General App Styles */
+/* App Layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
 .app {
   display: flex;
-  height: 100vh;
-  background-color: #f0f3f5;
-}
-
-/* Content Area */
-.app > div {
-  display: flex;
-  flex: 1;
   flex-direction: row;
+  height: 100vh;
 }
 
-/* Making sure the sidebar and content are responsive */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
-  .app > div {
+  .app {
     flex-direction: column;
+  }
+
+  .content {
+    margin-top: 10px;
   }
 }
