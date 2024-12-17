@@ -114,7 +114,7 @@ const UpdateTopic = () => {
           </select>
         </>
       )}
-    </div>
+      </div>
 
 
       {selectedTopic && (

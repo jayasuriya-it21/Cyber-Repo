@@ -9,7 +9,7 @@
   width: 100%;
   padding: 2.5rem;
   background: linear-gradient(135deg, #e0f7fa, #ffffff);
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
   height: calc(100vh - 80px);
   overflow-y: auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -21,8 +21,11 @@
 /* Form and Select Section */
 .selectTopic,
 form {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 650px;
+  max-width: 41%;
+  margin: 2rem auto;
   background: #ffffff;
   padding: 2.5rem;
   border-radius: 16px;
@@ -65,7 +68,7 @@ select,
 input[type="text"],
 input[type="url"],
 textarea {
-  width: 100%;
+  width: 95%;
   padding: 1rem;
   margin-bottom: 1.5rem;
   border: 2px solid #b2dfdb;
@@ -92,6 +95,9 @@ textarea:focus {
   border-color: #004d40;
   box-shadow: 0 0 12px rgba(0, 77, 64, 0.5);
   outline: none;
+}
+select{
+  width: 100%;
 }
 
 textarea {

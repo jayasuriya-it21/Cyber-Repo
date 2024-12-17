@@ -7,7 +7,7 @@
   justify-content: center;
   width: 80%;
   max-width: 800px;
-  margin: 2rem auto;
+  /* margin: 2rem auto; */
   padding: 2rem;
   border-radius: 16px;
   background: linear-gradient(135deg, #e0f7fa, #ffffff);
@@ -15,7 +15,7 @@
   transition: all 0.3s ease-in-out;
   text-align: center;
   height: calc(100vh - 100px);
-  animation: fadeInUp 0.6s ease-out;
+  /* animation: fadeInUp 0.6s ease-out; */
 }
 
 .selectTopic:hover {
