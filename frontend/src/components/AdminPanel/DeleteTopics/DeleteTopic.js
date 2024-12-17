@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { fetchTopics, deleteTopic } from '../../../Api/api';
+import "./DeleteTopic.css"
 
 
 

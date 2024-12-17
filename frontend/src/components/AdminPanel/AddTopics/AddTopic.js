@@ -1,10 +1,6 @@
-// frontend\src\components\AddTopic.js
-
 import React, { useState } from 'react';
 import { addTopic } from '../../../Api/api';
-import './AddTopic.css'
-
-
+import './AddTopic.css';
 
 const AddTopic = () => {
   const [formData, setFormData] = useState({
@@ -42,65 +38,88 @@ const AddTopic = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Add New Topic</h1>
+    <div className="add-topic-container">
+      <h1 className="add-topic-title">Add New Topic</h1>
+      <form onSubmit={handleSubmit} className="add-topic-form">
+        <div className="form-group">
+          <label htmlFor="category">Category:</label>
+          <select
+            id="category"
+            name="category"
+            value={formData.category}
+            onChange={handleChange}
+            required
+            className="form-control"
+          >
+            <option value="" disabled>
+              Select Category
+            </option>
+            <option value="Basic">Basic</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
 
-      <label>Category:</label>
-      <select
-        name="category"
-        value={formData.category}
-        onChange={handleChange}
-        required
-      >
-        <option value="" disabled>
-          Select Category
-        </option>
-        <option value="Basic">Basic</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-      </select>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="form-control"
+          />
+        </div>
 
-      <label>Name:</label>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
+        <div className="form-group">
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+            className="form-control"
+          />
+        </div>
 
-      <label>Description:</label>
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={formData.description}
-        onChange={handleChange}
-        required
-      />
+        <div className="form-group">
+          <label htmlFor="videoLink">Video Link:</label>
+          <input
+            type="url"
+            id="videoLink"
+            name="videoLink"
+            placeholder="Video Link"
+            value={formData.videoLink}
+            onChange={handleChange}
+            required
+            className="form-control"
+          />
+        </div>
 
-      <label>Video Link:</label>
-      <input
-        type="url"
-        name="videoLink"
-        placeholder="Video Link"
-        value={formData.videoLink}
-        onChange={handleChange}
-        required
-      />
+        <div className="form-group">
+          <label htmlFor="referenceLink">Reference Link:</label>
+          <input
+            type="url"
+            id="referenceLink"
+            name="referenceLink"
+            placeholder="Reference Link"
+            value={formData.referenceLink}
+            onChange={handleChange}
+            required
+            className="form-control"
+          />
+        </div>
 
-      <label>Reference Link:</label>
-      <input
-        type="url"
-        name="referenceLink"
-        placeholder="Reference Link"
-        value={formData.referenceLink}
-        onChange={handleChange}
-        required
-      />
-
-      <button type="submit">Add Topic</button>
-    </form>
+        <button type="submit" className="btn btn-primary">
+          Add Topic
+        </button>
+      </form>
+    </div>
   );
 };
 
