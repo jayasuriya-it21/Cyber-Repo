@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './css/AdminHome.css'
+import './AdminHome.css'
+
+
 const AdminHome = () => {
   return (
     <div className="admin-container">

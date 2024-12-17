@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchTopicDetailsByName } from "../api"; // Update the API call to fetch by name
+import { fetchTopicDetailsByName } from "../../../Api/api"; // Update the API call to fetch by name
 import ReactMarkdown from "react-markdown";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import "./css/Display.css";
+import "./Display.css";
 
 function Display() {
   const { category, topicName } = useParams(); // Get category and topicName from the URL

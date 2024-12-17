@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./css/Menu.css";
+import "./Menu.css";
 
 function Menu({ onSelectTopic, topics, category, selectedTopic }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

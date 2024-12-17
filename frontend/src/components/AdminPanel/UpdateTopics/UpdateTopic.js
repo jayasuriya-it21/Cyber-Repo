@@ -1,8 +1,9 @@
 // frontend\src\components\UpdateTopic.js
 
 import React, { useState, useEffect } from 'react';
-import { fetchTopics, updateTopic } from '../api';
-import './css/UpdateTopic.css'
+import { fetchTopics, updateTopic } from '../../../Api/api';
+import './UpdateTopic.css'
+
 
 const UpdateTopic = () => {
   const [topics, setTopics] = useState([]);

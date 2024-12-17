@@ -1,0 +1,88 @@
+/* frontend\src\components\css\AdminHome.css */
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 2rem;
+  background-color: #ffffff;
+  margin-top: 2rem;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+h1 {
+  color: #2980b9;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.admin-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.admin-link {
+  display: inline-block;
+  width: 220px;
+  padding: 0.75rem 1.5rem;
+  background-color: #1abc9c;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-link:hover {
+  background-color: #16a085;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+li {
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .admin-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    width: 150px;
+  }
+}

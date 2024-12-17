@@ -1,15 +1,12 @@
-// frontend\src\App.js
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import Menu from './components/Menu';
-import Display from './components/Display';
-import Navbar from './components/Navbar';
-import AddTopic from './components/AddTopic';
-import UpdateTopic from './components/UpdateTopic';
-import AdminHome from './components/AdminHome';
-import DeleteTopic from './components/DeleteTopic';
-import { fetchTopics } from './api';
+import Navbar from './components/CourseDisplay/Navbar/Navbar';
+import AddTopic from './components/AdminPanel/AddTopics/AddTopic';
+import UpdateTopic from './components/AdminPanel/UpdateTopics/UpdateTopic';
+import AdminHome from './components/AdminPanel/Home/AdminHome';
+import DeleteTopic from './components/AdminPanel/DeleteTopics/DeleteTopic';
+import { fetchTopics } from './Api/api';
+import CourseRoutes from './components/CourseDisplay/Route/CourseRoutes'; // Import the new component
 
 const App = () => {
   const [topics, setTopics] = useState([]);
@@ -58,37 +55,17 @@ const App = () => {
     return topics.filter(topic => topic.category.toLowerCase() === category.toLowerCase());
   };
 
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <div>
-      <Navbar handleSelectCategory={handleSelectCategory} />
-      <Routes>
-        <Route path="/courses/basic" element={
-          <div>
-            <Menu onSelectTopic={(topicName) => handleSelectTopic("basic", topicName)} topics={filterTopicsByCategory("basic")} category="basic" selectedTopic="" />
-            <Display selectedTopic={selectedTopic} />
-          </div>
-        } />
-        <Route path="/courses/intermediate" element={
-          <div>
-            <Menu onSelectTopic={(topicName) => handleSelectTopic("intermediate", topicName)} topics={filterTopicsByCategory("intermediate")} category="intermediate" selectedTopic="" />
-            <Display selectedTopic={selectedTopic} />
-          </div>
-        } />
-        <Route path="/courses/advanced" element={
-          <div>
-            <Menu onSelectTopic={(topicName) => handleSelectTopic("advanced", topicName)} topics={filterTopicsByCategory("advanced")} category="advanced" selectedTopic="" />
-            <Display selectedTopic={selectedTopic} />
-          </div>
-        } />
-
-        {/* Dynamic route for individual topics */}
-        <Route path="/courses/:category/:topicName" element={
-          <div>
-            <Menu onSelectTopic={(topicName) => handleSelectTopic(selectedCategory, topicName)} topics={filterTopicsByCategory(selectedCategory)} category={selectedCategory} selectedTopic={selectedTopic} />
-            <Display selectedTopic={selectedTopic} />
-          </div>
-        } />
-      </Routes>
+      {!isAdminRoute && <Navbar handleSelectCategory={handleSelectCategory} />}
+      <CourseRoutes
+        handleSelectTopic={handleSelectTopic}
+        filterTopicsByCategory={filterTopicsByCategory}
+        selectedCategory={selectedCategory}
+        selectedTopic={selectedTopic}
+      />
       <Routes>
         <Route path="/admin" element={<AdminHome />} /> 
         <Route path="/admin/add" element={<AddTopic />} /> 
