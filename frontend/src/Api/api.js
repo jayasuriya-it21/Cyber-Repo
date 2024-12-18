@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/topics';
+const API_URL = 'http://localhost:8080/api/topics';
 
 export const fetchTopics = async () => {
   try {
